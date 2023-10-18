@@ -1,10 +1,8 @@
 import { SortableContext, useSortable } from "@dnd-kit/sortable";
-import TrashIcon from "../icons/TrashIcon";
-import { Column, Id, Task } from "../types";
 import { CSS } from "@dnd-kit/utilities";
 import { useMemo, useState } from "react";
-import PlusIcon from "../icons/PlusIcon";
 import TaskCard from "./TaskCard";
+import { PiPlusCircleDuotone, PiTrash } from "react-icons/pi";
 
 interface Props {
   column: Column;
@@ -156,7 +154,7 @@ function ColumnContainer({
         py-2
         "
         >
-          <TrashIcon />
+          <PiTrash />
         </button>
       </div>
 
@@ -180,7 +178,7 @@ function ColumnContainer({
           createTask(column.id);
         }}
       >
-        <PlusIcon />
+        <PiPlusCircleDuotone />
         Add task
       </button>
     </div>
