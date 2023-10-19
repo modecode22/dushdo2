@@ -60,7 +60,7 @@ function ColumnContainer({
       bg-columnBackgroundColor
       opacity-40
       border-2
-      border-pink-500
+      border-primary-500
       w-[350px]
       h-[500px]
       max-h-[500px]
@@ -77,11 +77,11 @@ function ColumnContainer({
       ref={setNodeRef}
       style={style}
       className="
-  bg-columnBackgroundColor
+  bg-dark-950
   w-[350px]
   h-[500px]
   max-h-[500px]
-  rounded-md
+  rounded
   flex
   flex-col
   "
@@ -94,16 +94,15 @@ function ColumnContainer({
           setEditMode(true);
         }}
         className="
-      bg-mainBackgroundColor
+      bg-dark-500
       text-md
       h-[60px]
       cursor-grab
-      rounded-md
+      rounded
       rounded-b-none
       p-3
       font-bold
       border-columnBackgroundColor
-      border-4
       flex
       items-center
       justify-between
@@ -115,7 +114,7 @@ function ColumnContainer({
         flex
         justify-center
         items-center
-        bg-columnBackgroundColor
+        bg-dark-700
         px-2
         py-1
         text-sm
@@ -127,7 +126,7 @@ function ColumnContainer({
           {!editMode && column.title}
           {editMode && (
             <input
-              className="bg-black focus:border-rose-500 border rounded outline-none px-2"
+              className="bg-dark-500 focus:border-primary-500 border rounded outline-none px-2"
               value={column.title}
               onChange={(e) => updateColumn(column.id, e.target.value)}
               autoFocus
@@ -148,7 +147,7 @@ function ColumnContainer({
           className="
         stroke-gray-500
         hover:stroke-white
-        hover:bg-columnBackgroundColor
+        hover:bg-dark-950
         rounded
         px-1
         py-2
@@ -173,7 +172,7 @@ function ColumnContainer({
       </div>
       {/* Column footer */}
       <button
-        className="flex gap-2 items-center border-columnBackgroundColor border-2 rounded-md p-4 border-x-columnBackgroundColor hover:bg-mainBackgroundColor hover:text-rose-500 active:bg-black"
+        className="flex gap-2 items-center  rounded-md p-4  hover:text-primary-500 active:bg-dark-950"
         onClick={() => {
           createTask(column.id);
         }}
