@@ -162,12 +162,10 @@ function KanbanBoard() {
       w-[350px]
       min-w-[350px]
       cursor-pointer
-      rounded-lg
-      bg-mainBackgroundColor
-      border-2
-      border-columnBackgroundColor
+      rounded
+      bg-dark-700
       p-4
-      ring-rose-500
+      ring-primary-500
       hover:ring-2
       flex
       gap-2
