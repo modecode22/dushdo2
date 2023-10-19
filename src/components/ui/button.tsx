@@ -11,18 +11,19 @@ export const buttonVariants = cva(
       variant: {
         // Primary
         "primary-solid":
-          "dark:bg-primary-500 dark:hover:bg-primary-400 hover:bg-primary-500 bg-primary-600 dark:active:text-dark-900 shadow-sm     dark:text-dark-800 active:text-light-50 text-light-100  ",
+          "bg-gradient-to-br from-dark-800 via-dark-800 to-primary-800 hover:from-dark-800 hover:via-primary-900 hover:to-primary-800 shadow-sm shadow-primary-900 hover:shadow-md hover:shadow-primary-900 text-light-950 hover:text-light-500 active:text-light-50",
+        // "dark:bg-primary-500 dark:hover:bg-primary-400 hover:bg-primary-500 bg-primary-600 dark:active:text-dark-900 shadow-sm     dark:text-dark-800 active:text-light-50 text-light-100  ",
         "primary-outline":
           " border-2 border-primary-500 hover:border-primary-400       text-primary-400 active:text-primary-500",
         "primary-ghost":
           "text-primary-600 hover:text-priamry-800 dark:hover:bg-primary-950 hover:bg-primary-50",
         // Transparent
-        "transparent":
+        transparent:
           "dark:hover:text-light-500 text-dark-500 hover:text-dark-700 dark:text-light-800",
 
         // Light
         "light-solid":
-          "bg-light-500 hover:bg-light-400 active:text-dark-900 shadow-sm text-dark-800 ",
+          " bg-gradient-to-br from-dark-800 via-dark-800 to-light-800 hover:from-dark-800 hover:via-light-900 hover:to-light-800 shadow-sm shadow-light-900 hover:shadow-md hover:shadow-light-900 text-light-950 hover:text-dark-500 active:text-dark-50",
         "light-outline":
           "border-2 border-light-500 hover:border-light-400 dark:text-light-400 dark:active:text-light-500 text-dark-500 active:text-dark-950",
         "light-ghost":
@@ -35,7 +36,7 @@ export const buttonVariants = cva(
         "dark-ghost": "text-dark-600  dark:hover:bg-dark-950 hover:bg-dark-50",
         // Error
         "error-solid":
-          "bg-error-500 hover:bg-error-400 dark:active:text-dark-900 shadow-sm dark:text-dark-800 active:text-light-50 text-light-100",
+          "bg-gradient-to-br from-dark-800 via-dark-800 to-error-800 hover:from-dark-800 hover:via-error-900 hover:to-error-800 shadow-sm shadow-error-900 hover:shadow-md hover:shadow-error-900 text-light-950 hover:text-light-500 active:text-light-50",
         "error-outline":
           "border-2 border-error-500 hover:border-error-400 text-error-400 active:text-error-500",
         "error-ghost":
@@ -43,7 +44,7 @@ export const buttonVariants = cva(
 
         // Alert
         "alert-solid":
-          "bg-alert-500 hover:bg-alert-400 dark:active:text-dark-900 shadow-sm dark:text-dark-800 active:text-light-50 text-light-100",
+          "bg-gradient-to-br from-dark-800 via-dark-800 to-alert-800 hover:from-dark-800 hover:via-alert-900 hover:to-alert-800 shadow-sm shadow-alert-900 hover:shadow-md hover:shadow-alert-900 text-light-950 hover:text-light-500 active:text-light-50",
         "alert-outline":
           "border-2 border-alert-500 hover:border-alert-400 dark:text-alert-400 text-alert-600 active:text-alert-500",
         "alert-ghost":
@@ -51,7 +52,7 @@ export const buttonVariants = cva(
 
         // Success
         "success-solid":
-          "bg-success-500 hover:bg-success-400 dark:active:text-dark-900 shadow-sm dark:text-dark-800 active:text-light-50 text-light-100",
+          "bg-gradient-to-br from-dark-800 via-dark-800 to-success-800 hover:from-dark-800 hover:via-success-900 hover:to-success-800 shadow-sm shadow-success-900 hover:shadow-md hover:shadow-success-900 text-light-950 hover:text-light-500 active:text-light-50",
         "success-outline":
           "border-2 border-success-500 hover:border-success-400 text-success-400 active:text-success-500",
         "success-ghost":
@@ -59,14 +60,14 @@ export const buttonVariants = cva(
 
         // Info
         "info-solid":
-          "bg-info-500 hover:bg-info-400 dark:active:text-dark-900 shadow-sm dark:text-dark-800 active:text-light-50 text-light-100",
+          "bg-gradient-to-br from-dark-800 via-dark-800 to-info-800 hover:from-dark-800 hover:via-info-900 hover:to-info-800 shadow-sm shadow-info-900 hover:shadow-md hover:shadow-info-900 text-light-950 hover:text-light-500 active:text-light-50",
         "info-outline":
           "border-2 border-info-500 hover:border-info-400 text-info-400 active:text-info-500",
         "info-ghost": "text-info-600  hover:bg-info-50 dark:hover:bg-info-950",
 
         // Happy
         "happy-solid":
-          "bg-happy-500 hover:bg-happy-400 dark:active:text-dark-900 shadow-sm dark:text-dark-800 active:text-light-50 text-light-100",
+          "bg-gradient-to-br from-dark-800 via-dark-800 to-happy-800 hover:from-dark-800 hover:via-happy-900 hover:to-happy-800 shadow-sm shadow-happy-900 hover:shadow-md hover:shadow-happy-900 text-light-950 hover:text-light-500 active:text-light-50",
         "happy-outline":
           "border-2 border-happy-500 hover:border-happy-400 text-happy-400 active:text-happy-500",
         "happy-ghost":
