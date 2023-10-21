@@ -5,7 +5,7 @@ import { cn } from "../../lib/utils";
 
 //  change the themes of the bottons
 export const buttonVariants = cva(
-  "group flex justify-center items-center  gap-2  h-fit  duration-75  transition-all duration-75  select-none  ",
+  "group flex justify-center rounded items-center  gap-2  h-fit  duration-75  transition-all duration-75  select-none  ",
   {
     variants: {
       variant: {
