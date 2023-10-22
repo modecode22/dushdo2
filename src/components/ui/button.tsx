@@ -23,17 +23,17 @@ export const buttonVariants = cva(
 
         // Light
         "light-solid":
-          " bg-gradient-to-br from-dark-800 via-dark-800 to-light-800 hover:from-dark-800 hover:via-light-900 hover:to-light-800 shadow-sm shadow-light-900 hover:shadow-md hover:shadow-light-900 text-light-950 hover:text-dark-500 active:text-dark-50",
+          " bg-light-500  hover:bg-light-800  shadow-sm shadow-dark-50 hover:shadow-md hover:shadow-dark-50 text-dark-50 hover:text-dark-500 active:text-dark-50",
         "light-outline":
           "border-2 border-light-500 hover:border-light-400 dark:text-light-400 dark:active:text-light-500 text-dark-500 active:text-dark-950",
         "light-ghost":
           "dark:text-light-600 dark:hover:text-light-800 dark:hover:bg-dark-700 hover:bg-light-900 ",
         // Dark
         "dark-solid":
-          "bg-dark-500 hover:bg-dark-400 dark:active:text-dark-900 shadow-sm dark:text-dark-800 active:text-light-50 text-light-100",
+          "bg-dark-500 hover:bg-dark-400  shadow-sm  active:text-light-50 text-light-100",
         "dark-outline":
-          "border-2 border-dark-500 hover:border-dark-400 text-dark-400 active:text-dark-500",
-        "dark-ghost": "text-dark-600  dark:hover:bg-dark-950 hover:bg-dark-50",
+          "border-2 border-dark-500 hover:border-dark-400 text-light-400 active:text-light-500",
+        "dark-ghost": "text-light-600  dark:hover:bg-dark-950 hover:bg-dark-50",
         // Error
         "error-solid":
           "bg-gradient-to-br from-dark-800 via-dark-800 to-error-800 hover:from-dark-800 hover:via-error-900 hover:to-error-800 shadow-sm shadow-error-900 hover:shadow-md hover:shadow-error-900 text-light-950 hover:text-light-500 active:text-light-50",
