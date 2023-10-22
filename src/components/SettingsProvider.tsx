@@ -1,13 +1,11 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { getFromLocalStorage } from "../lib/utils";
+import { getFromLocalStorage, updateAndStore } from "../lib/utils";
 
 // Settings Context Initialization
 const SettingsContext = createContext<ContextType>({
   theme: "dark",
-  updateTheme: () => {}
+  updateTheme: () => {},
 });
-
-
 
 export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -16,7 +14,6 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({
   const [theme, setTheme] = useState<ThemeType>(
     getFromLocalStorage("theme", "dark")
   );
-  
 
   // Effects
   useEffect(() => {
@@ -26,13 +23,12 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({
     theme === "dark" ? htmlClass.add(className) : htmlClass.remove(className);
   }, [theme]);
 
-
   return (
     <SettingsContext.Provider
       value={{
         theme,
         updateTheme: (value: ThemeType) =>
-          updateAndStore("theme", value, setTheme)
+          updateAndStore("theme", value, setTheme),
       }}
     >
       {children}
