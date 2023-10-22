@@ -143,7 +143,6 @@ function KanbanBoard() {
                 <ColumnContainer
                   key={col.id}
                   column={col}
-                  deleteColumn={deleteColumn}
                   updateColumn={updateColumn}
                   createTask={createTask}
                   deleteTask={deleteTask}
@@ -153,27 +152,7 @@ function KanbanBoard() {
               ))}
             </SortableContext>
           </div>
-          <button
-            onClick={() => {
-              createNewColumn();
-            }}
-            className="
-      h-[60px]
-      w-[350px]
-      min-w-[350px]
-      cursor-pointer
-      rounded
-      bg-dark-700
-      p-4
-      ring-primary-500
-      hover:ring-2
-      flex
-      gap-2
-      "
-          >
-            <PiPlusCircleDuotone />
-            Add Column
-          </button>
+    
         </div>
 
         {createPortal(
@@ -181,7 +160,6 @@ function KanbanBoard() {
             {activeColumn && (
               <ColumnContainer
                 column={activeColumn}
-                deleteColumn={deleteColumn}
                 updateColumn={updateColumn}
                 createTask={createTask}
                 deleteTask={deleteTask}
