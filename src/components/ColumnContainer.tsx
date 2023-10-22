@@ -3,10 +3,10 @@ import { CSS } from "@dnd-kit/utilities";
 import { useMemo, useState } from "react";
 import TaskCard from "./TaskCard";
 import { PiPlusCircleDuotone, PiTrash } from "react-icons/pi";
+import { ScrollArea } from "./ui/scroll-bar";
 
 interface Props {
   column: Column;
-  deleteColumn: (id: Id) => void;
   updateColumn: (id: Id, title: string) => void;
 
   createTask: (columnId: Id) => void;
@@ -17,8 +17,6 @@ interface Props {
 
 function ColumnContainer({
   column,
-  deleteColumn,
-  updateColumn,
   createTask,
   tasks,
   deleteTask,
@@ -57,14 +55,12 @@ function ColumnContainer({
         ref={setNodeRef}
         style={style}
         className="
-      bg-columnBackgroundColor
+      bg-dark-700
       opacity-40
-      border-2
-      border-primary-500
-      w-[350px]
+      w-[250px]
       h-[500px]
       max-h-[500px]
-      rounded-md
+      rounded
       flex
       flex-col
       "
@@ -78,7 +74,7 @@ function ColumnContainer({
       style={style}
       className="
   bg-dark-950
-  w-[350px]
+  w-[250px]
   h-[500px]
   max-h-[500px]
   rounded
@@ -90,14 +86,14 @@ function ColumnContainer({
       <div
         {...attributes}
         {...listeners}
-        onClick={() => {
-          setEditMode(true);
-        }}
         className="
-      bg-dark-500
+        cursor-default
+      bg-dark-600
       text-md
-      h-[60px]
-      cursor-grab
+      min-h-[60px]
+      shadow-md
+      shadow-dark-600
+      z-20
       rounded
       rounded-b-none
       p-3
@@ -108,7 +104,8 @@ function ColumnContainer({
       justify-between
       "
       >
-        <div className="flex gap-2">
+        <div className="flex justify-between items-center w-full">
+          <div>{column.title}</div>
           <div
             className="
         flex
@@ -123,42 +120,12 @@ function ColumnContainer({
           >
             0
           </div>
-          {!editMode && column.title}
-          {editMode && (
-            <input
-              className="bg-dark-500 focus:border-primary-500 border rounded outline-none px-2"
-              value={column.title}
-              onChange={(e) => updateColumn(column.id, e.target.value)}
-              autoFocus
-              onBlur={() => {
-                setEditMode(false);
-              }}
-              onKeyDown={(e) => {
-                if (e.key !== "Enter") return;
-                setEditMode(false);
-              }}
-            />
-          )}
         </div>
-        <button
-          onClick={() => {
-            deleteColumn(column.id);
-          }}
-          className="
-        stroke-gray-500
-        hover:stroke-white
-        hover:bg-dark-950
-        rounded
-        px-1
-        py-2
-        "
-        >
-          <PiTrash />
-        </button>
       </div>
 
       {/* Column task container */}
-      <div className="flex flex-grow flex-col gap-4 p-2 overflow-x-hidden overflow-y-auto">
+      <ScrollArea className="flex flex-grow flex-col  p-2 h-fit">
+    <div className="flex flex-grow flex-col  p-2 h-fit gap-2">
         <SortableContext items={tasksIds}>
           {tasks.map((task) => (
             <TaskCard
@@ -169,7 +136,9 @@ function ColumnContainer({
             />
           ))}
         </SortableContext>
-      </div>
+
+    </div>
+      </ScrollArea>
       {/* Column footer */}
       <button
         className="flex gap-2 items-center  rounded-md p-4  hover:text-primary-500 active:bg-dark-950"
