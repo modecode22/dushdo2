@@ -31,3 +31,14 @@ export async function urlToBlob(url: string): Promise<Blob | null> {
     return null;
   }
 }
+
+
+  // Update and Store functions
+ export const updateAndStore = (
+    key: string,
+    value: any,
+    updater: React.Dispatch<React.SetStateAction<any>>
+  ) => {
+    updater(value);
+    localStorage.setItem(key, JSON.stringify(value));
+  };
