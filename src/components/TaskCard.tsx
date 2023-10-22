@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { PiTrash } from "react-icons/pi";
+import { TbEdit, TbTrashX } from "react-icons/tb";
+import Tooltip from "./ui/tooltip";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 interface Props {
   task: Task;
@@ -11,7 +13,6 @@ interface Props {
 
 function TaskCard({ task, deleteTask, updateTask }: Props) {
   const [mouseIsOver, setMouseIsOver] = useState(false);
-  const [editMode, setEditMode] = useState(true);
 
   const {
     setNodeRef,
@@ -26,17 +27,12 @@ function TaskCard({ task, deleteTask, updateTask }: Props) {
       type: "Task",
       task,
     },
-    disabled: editMode,
+    disabled: false,
   });
 
   const style = {
     transition,
     transform: CSS.Transform.toString(transform),
-  };
-
-  const toggleEditMode = () => {
-    setEditMode((prev) => !prev);
-    setMouseIsOver(false);
   };
 
   if (isDragging) {
@@ -46,38 +42,9 @@ function TaskCard({ task, deleteTask, updateTask }: Props) {
         style={style}
         className="
         opacity-30
-      bg-dark-500 p-2.5 h-[100px] min-h-[100px] items-center flex text-left rounded-xl border-2 border-primary-500  cursor-grab relative
+      bg-dark-500 p-2.5 h-[80px] min-h-[80px] items-center flex text-left rounded-xl  border-primary-500  cursor-grab relative
       "
       />
-    );
-  }
-
-  if (editMode) {
-    return (
-      <div
-        ref={setNodeRef}
-        style={style}
-        {...attributes}
-        {...listeners}
-        className="bg-dark-600 p-2.5 h-[100px] min-h-[100px] items-center flex text-left rounded-xl hover:ring-2 hover:ring-inset hover:ring-primary-500 cursor-grab relative"
-      >
-        <textarea
-          className="
-        h-[90%]
-        w-full resize-none border-none rounded bg-transparent text-white focus:outline-none
-        "
-          value={task.content}
-          autoFocus
-          placeholder="Task content here"
-          onBlur={toggleEditMode}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && e.shiftKey) {
-              toggleEditMode();
-            }
-          }}
-          onChange={(e) => updateTask(task.id, e.target.value)}
-        />
-      </div>
     );
   }
 
@@ -87,29 +54,25 @@ function TaskCard({ task, deleteTask, updateTask }: Props) {
       style={style}
       {...attributes}
       {...listeners}
-      onClick={toggleEditMode}
-      className="bg-dark-700 p-2.5 h-[100px] min-h-[100px] items-center flex text-left rounded-xl hover:ring-2 hover:ring-inset hover:ring-primary-500 cursor-grab relative task"
-      onMouseEnter={() => {
-        setMouseIsOver(true);
-      }}
-      onMouseLeave={() => {
-        setMouseIsOver(false);
-      }}
+      className="bg-dark-700 relative group p-2.5   w-[220px]
+      h-[80px] min-h-[80px] items-center flex text-left rounded  hover:ring-primary-950 cursor-grab  task"
     >
-      <p className="my-auto h-[90%] w-full overflow-y-auto overflow-x-hidden whitespace-pre-wrap">
+      <p className="my-auto h-[90%] w-full overflow-y-auto overflow-x-hidden truncate line-clamp-2 whitespace-pre-wrap">
         {task.content}
       </p>
-
-      {mouseIsOver && (
-        <button
-          onClick={() => {
-            deleteTask(task.id);
-          }}
-          className="stroke-white absolute right-4 top-1/2 -translate-y-1/2 bg-dark-400 p-2 rounded opacity-60 hover:opacity-100"
-        >
-          <PiTrash />
-        </button>
-      )}
+      <div className="hidden group-hover:flex relative bg-dark-300 px-1 h-full rounded  flex-col justify-evenly items-center ">
+        <Tooltip direction="right" className="cursor-pointer" name="Edit">
+          <Sheet>
+            <SheetTrigger>
+              <TbEdit />
+            </SheetTrigger>
+            <SheetContent side={"right"} className=""></SheetContent>
+          </Sheet>
+        </Tooltip>
+        <Tooltip direction="right" className="cursor-pointer" name="Delete">
+          <TbTrashX />
+        </Tooltip>
+      </div>
     </div>
   );
 }
