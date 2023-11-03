@@ -125,19 +125,18 @@ function ColumnContainer({
 
       {/* Column task container */}
       <ScrollArea className="flex flex-grow flex-col  p-2 h-fit">
-    <div className="flex flex-grow flex-col  p-2 h-fit gap-2">
-        <SortableContext items={tasksIds}>
-          {tasks.map((task) => (
-            <TaskCard
-              key={task.id}
-              task={task}
-              deleteTask={deleteTask}
-              updateTask={updateTask}
-            />
-          ))}
-        </SortableContext>
-
-    </div>
+        <div className="flex flex-grow flex-col  p-2 h-fit gap-2">
+          <SortableContext items={tasksIds}>
+            {tasks.map((task) => (
+              <TaskCard
+                key={task.id}
+                task={task}
+                deleteTask={deleteTask}
+                updateTask={updateTask}
+              />
+            ))}
+          </SortableContext>
+        </div>
       </ScrollArea>
       {/* Column footer */}
       <button

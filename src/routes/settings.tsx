@@ -1,10 +1,5 @@
-
 const Settings = () => {
-  return (
-    <section>
-     
-    </section>
-  );
+  return <section></section>;
 };
 
 export default Settings;
